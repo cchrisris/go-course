@@ -1,0 +1,17 @@
+services:
+  balance:
+    build:
+      context: ../
+      dockerfile: hw3/Dockerfile
+    environment:
+      - LISTEN_ADDR=:8080
+      - STORAGE=file
+      - FILE_PATH=/data/balances.json
+    volumes:
+      - balances-data:/data
+    ports:
+      - "8080:8080"
+volumes:
+  balances-data: {}
+
+
